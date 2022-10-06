@@ -1,0 +1,33 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "trailingComma": "none",
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "semi": true,
+  "importOrder": [
+    "^react",
+    "^clsx$",
+    "^i18n(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@radix",
+    "^api(.*)$",
+    "^auth(.*)$",
+    "^tailwind(.*)$",
+    "^app(.*)$",
+    "^pages(.*)$",
+    "^layout(.*)$",
+    "^components(.*)$",
+    "^panels(.*)$",
+    "^@types(.*)$",
+    "^utils(.*)$",
+    "^assets(.*)$",
+    "^icons(.*)$",
+    "^unit-icons(.*)$",
+    "^@fontsource(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
+}
