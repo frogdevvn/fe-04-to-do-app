@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/css-reset": "^2.0.8",
     "@chakra-ui/react": "^2.3.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -17,11 +18,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.1.0",
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0",
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -36,9 +36,10 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0",
     "vite-plugin-require-transform": "^1.0.3",
     "vite-plugin-svgr": "^2.2.1",
-    "vite-tsconfig-paths": "^3.5.1",
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0"
+    "vite-tsconfig-paths": "^3.5.1"
   }
 }
