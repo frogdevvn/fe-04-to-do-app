@@ -119,27 +119,28 @@ const HomePage = () => {
     <Container centerContent>
       <Heading fontWeight="extrabold">Todo App</Heading>
 
-      <InputGroup size="md" marginTop={16}>
+      <InputGroup size="md" mt={16}>
         <Input
+          pr="4.5rem"
           variant="filled"
           type="text"
           placeholder="Type your new task here..."
           onChange={onChangeTaskInput}
           ref={taskInputRef}
         />
-        console.log(todoList);
-        <InputRightElement width="5.5rem" hidden={task.length === 0}>
+
+        <InputRightElement width="4.5rem" hidden={task.length === 0}>
           <Button variant="ghost" size="sm" onClick={clearTaskInput}>
             Clear
           </Button>
         </InputRightElement>
       </InputGroup>
 
-      <Button colorScheme="blue" marginTop={4} onClick={addTodo}>
+      <Button colorScheme="blue" mt={4} onClick={addTodo}>
         Add New Task
       </Button>
 
-      <VStack spacing={2} width="100%" marginTop={16}>
+      <VStack spacing={2} width="100%" mt={16}>
         {todoList.length === 0 && (
           <Box>
             <Text as="i" colorScheme="gray" opacity={0.5}>
