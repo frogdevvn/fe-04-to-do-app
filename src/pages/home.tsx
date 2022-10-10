@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,11 +16,17 @@ import EditAlertDialog from 'components/edit-alert-dialog';
 import TodoItem from 'components/todo-item';
 import type { Todo } from 'components/todo-item';
 
+const LOCAL_TODO_LIST_KEY = 'todo-list';
+
 const HomePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [task, setTask] = useState('');
-  const [todoList, setTodoList] = useState<Todo[]>([]);
+  const [todoList, setTodoList] = useState<Todo[]>(() => {
+    const localData = localStorage.getItem(LOCAL_TODO_LIST_KEY);
+
+    return localData ? JSON.parse(localData) : [];
+  });
   const [curSelectTodo, setCurSelectTodo] = useState<Todo | null>(null);
   const taskInputRef = useRef<HTMLInputElement>(null);
   const {
@@ -91,6 +97,10 @@ const HomePage = () => {
     setTodoList(updatedTodoList);
   };
 
+  const saveToLocal = () => {
+    localStorage.setItem(LOCAL_TODO_LIST_KEY, JSON.stringify(todoList));
+  };
+
   const openDeleteAlertDialog = (curSelectTodo: Todo) => {
     setIsDeleting(true);
     setCurSelectTodo(curSelectTodo);
@@ -102,6 +112,8 @@ const HomePage = () => {
     setCurSelectTodo(curSelectTodo);
     onOpenEditAlertDialog();
   };
+
+  useEffect(() => saveToLocal(), [todoList]);
 
   return (
     <Container centerContent>
@@ -115,7 +127,7 @@ const HomePage = () => {
           onChange={onChangeTaskInput}
           ref={taskInputRef}
         />
-
+        console.log(todoList);
         <InputRightElement width="5.5rem" hidden={task.length === 0}>
           <Button variant="ghost" size="sm" onClick={clearTaskInput}>
             Clear
