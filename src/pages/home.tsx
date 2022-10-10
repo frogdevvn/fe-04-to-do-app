@@ -113,6 +113,18 @@ const HomePage = () => {
     onOpenEditAlertDialog();
   };
 
+  const closeDeleteAlertDialog = () => {
+    setIsDeleting(false);
+    setCurSelectTodo(null);
+    onCloseDeleteAlertDialog();
+  };
+
+  const closeEditAlertDialog = () => {
+    setIsEditing(false);
+    setCurSelectTodo(null);
+    onCloseEditAlertDialog();
+  };
+
   useEffect(() => saveToLocal(), [todoList]);
 
   return (
@@ -165,7 +177,7 @@ const HomePage = () => {
       {isDeleting && !isEditing && (
         <DeleteAlertDialog
           isOpen={isOpenDeleteAlertDialog}
-          onClose={onCloseDeleteAlertDialog}
+          onClose={closeDeleteAlertDialog}
           onConfirm={deleteTodo}
         />
       )}
@@ -174,7 +186,7 @@ const HomePage = () => {
         <EditAlertDialog
           curSelectTodo={curSelectTodo}
           isOpen={isOpenEditAlertDialog}
-          onClose={onCloseEditAlertDialog}
+          onClose={closeEditAlertDialog}
           onSave={editTodo}
         />
       )}
