@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Flex,
   Heading,
   Input,
   InputGroup,
@@ -147,6 +148,9 @@ const HomePage = () => {
           </Button>
         </InputRightElement>
       </InputGroup>
+      <Text fontSize="xs" width="100%" textAlign="left" color="teal">
+        {`Length: ${task.length}`}
+      </Text>
 
       <Button colorScheme="blue" mt={4} onClick={addTodo}>
         Add New Task
